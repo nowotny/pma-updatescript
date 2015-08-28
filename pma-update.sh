@@ -7,12 +7,12 @@
 ##
 
 # SETTINGS
-# Please check this settings. Without changing 
+# Please check this settings. Without changing
 # location and pma your installation will not work!
-# 
-# Instead of changing these values below, 
-# you can place them in a .pma-updaterc file in the  
-# home folder from the user this script runs as. 
+#
+# Instead of changing these values below,
+# you can place them in a .pma-updaterc file in the
+# home folder from the user this script runs as.
 ##
 
 LOCATION=""         # Directory of PMA installation. Without a slash at the end. For example: LOCATION="/var/www"
@@ -24,6 +24,7 @@ CTYPE="tar.gz"      # Compression type. default "tar.gz". tar.bz2 is possible, t
 LOGLEVEL=1          # set 0 for quiet mode (no output)
                     # set 1 to output warnings (DEFAULT)
                     # set 2 to output all messages
+DATEFORMAT="+%Y-%m-%d %H:%M:%S"     # Date format for log output. See "man date" for details.
 DELETE=0            # set 1 to delete directory examples
 VERSIONLINK="http://www.phpmyadmin.net/home_page/version.php"
 FORCE="off"
@@ -57,7 +58,7 @@ fi
 # Output warnings
 log() {
     if [ $LOGLEVEL -gt 0 ]; then
-        echo "$@";
+        echo `date "$DATEFORMAT"`: "$@";
     fi
 }
 
