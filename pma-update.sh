@@ -54,6 +54,7 @@ if [ -f $CONFIG_FILE ]; then
     command . $CONFIG_FILE;
 fi
 
+LOCATION=`readlink -f $LOCATION`
 
 # Output warnings
 log() {
